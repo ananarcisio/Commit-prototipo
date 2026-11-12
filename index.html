@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commit! — Aprenda Programação na Prática</title>
+  <meta name="description" content="Plataforma educacional para estudantes de programação desenvolverem projetos práticos com instruções guiadas e entrega via GitHub.">
+  
+  <!-- Fontes Oficiais do Design System: Bricolage Grotesque e IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos Globais -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Estrutura Principal da Aplicação -->
+  <div class="app-layout">
+    
+    <!-- BARRA LATERAL FIXA / DOCK DE NAVEGAÇÃO -->
+    <aside class="sidebar" aria-label="Navegação Principal">
+      <div class="sidebar-content">
+        <!-- Logo Tilted Oficial Commit! (Fundo Secondary #0D8FA8 com borda e sombra Primary #17324D) -->
+        <div class="logo-badge" id="logo-btn" role="button" tabindex="0" title="Voltar para a página inicial" aria-label="Commit! Início">
+          Commit!
+        </div>
+
+        <!-- Dock de Ícones (Figma) -->
+        <nav class="nav-dock" aria-label="Menu rápido">
+          <button class="nav-item active" id="nav-home" data-nav="home" data-tooltip="Início" aria-label="Início">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+            </svg>
+          </button>
+          
+<button class="nav-item" id="nav-catalog" data-nav="catalog" data-tooltip="Desafios" aria-label="Desafios">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"></circle>
+              <circle cx="12" cy="12" r="5"></circle>
+              <circle cx="12" cy="12" r="1"></circle>
+            </svg>
+          </button>
+
+          <button class="nav-item" id="nav-profile" data-nav="profile" data-tooltip="Meu Perfil" aria-label="Meu Perfil">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- WRAPPER DE CONTEÚDO PRINCIPAL -->
+    <div class="main-wrapper">
+      
+      <!-- BARRA SUPERIOR DE AUTENTICAÇÃO E SESSÃO -->
+      <header class="top-user-bar">
+
+        
+          
+
+        <div class="top-user-right-group">
+          <!-- Botão de Alternância de Tema (Modo Claro / Modo Escuro) -->
+          <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar entre modo claro e modo escuro" aria-label="Alternar tema">
+            <span id="theme-toggle-icon"></span>
+            <span id="theme-toggle-text">Modo Escuro</span>
+          </button>
+
+          <div id="top-user-info">
+            <!-- Renderizado dinamicamente via JavaScript -->
+          </div>
+        </div>
+      </header>
+
+      <!-- ÁREA DE PÁGINAS (SPA) -->
+      <main class="page-container">
+
+        <!-- ===================================================================
+             1. TELA: HOME (Figma Home.png)
+             =================================================================== -->
+        <section class="view-panel active" id="view-home" aria-label="Tela Inicial">
+          <h1 class="main-greeting" id="home-greeting">Olá, Usuário!</h1>
+
+          <!-- Grid Principal de Desafios da Home com balões sociais -->
+          <div class="cards-grid" id="home-cards-grid">
+            <!-- Renderizado dinamicamente com os 5 cards e balões do Figma -->
+          </div>
+
+          <!-- Banner de 3 Colunas Didáticas (01, 02, 03 - Figma Home.png) -->
+          <section class="feature-triad-banner" aria-label="Vantagens do Commit!">
+            <div class="feature-col">
+              <span class="feature-num">01</span>
+              <div class="feature-text">
+                <h3>Projetos guiados</h3>
+                <p>Instruções curtas. Uma etapa por vez.</p>
+              </div>
+            </div>
+            <div class="feature-col">
+              <span class="feature-num">02</span>
+              <div class="feature-text">
+                <h3>Seu próprio ritmo</h3>
+                <p>Faça com o seu entendimento.</p>
+              </div>
+            </div>
+            <div class="feature-col">
+              <span class="feature-num">03</span>
+              <div class="feature-text">
+                <h3>GitHub desde cedo</h3>
+                <p>Aprenda a organizar e entregar seu código.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção Recomendação da Semana -->
+          <section class="section-recommendations" aria-label="Recomendações da semana">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <h2>Recomendação da Semana</h2>
+                <p class="section-subtitle">Fique por dentro das seleções de desafios dessa semana:</p>
+              </div>
+              <a href="javascript:void(0)" class="section-link" id="link-view-catalog">
+                Ver os desafios <span>&rarr;</span>
+              </a>
+            </div>
+
+            <div class="cards-grid" id="weekly-picks-grid">
+              <!-- Renderizado dinamicamente -->
+            </div>
+          </section>
+
+          <!-- Banner Informativo "VOCÊ PODE EXPLORAR" (Figma Home.png) -->
+          <section class="explore-strip-banner" aria-label="Explorar plataforma">
+            <span class="explore-tag">VOCÊ PODE EXPLORAR</span>
+            <p class="explore-desc">Veja todos os desafios sem criar uma conta. Entre quando quiser salvar progresso, favoritos e projetos.</p>
+            <button class="btn-strip-action" id="btn-explore-action">Criar conta &rarr;</button>
+          </section>
+
+          <!-- Banner CTA Inferior "PRONTO PARA TENTAR?" (Figma Home.png) -->
+          <section class="bottom-cta-banner" aria-label="Chamada para ação">
+            <div class="cta-content-left">
+              <span class="cta-kicker">PRONTO PARA TENTAR?</span>
+              <h2>Não precisa saber tudo para começar.</h2>
+              <p>Crie sua conta e encontre um primeiro projeto do seu tamanho.</p>
+            </div>
+            <button class="btn-cta-action" id="btn-home-cta-action">
+              Começar agora <span>&rarr;</span>
+            </button>
+          </section>
+        </section>
+
+
+        <!-- ===================================================================
+             2. TELA: CATÁLOGO DE DESAFIOS (Figma Tela Desafios.png)
+             =================================================================== -->
+       <section class="view-panel" id="view-catalog" aria-label="Explorar desafios">
+  <h1 class="main-greeting">Explorar desafios</h1>   <!-- ← adicione esta linha -->
+  <!-- Barra de Pesquisa com Ícone (Figma) -->
+  <div class="catalog-search-bar">
+            <div class="search-input-box">
+              <input type="text" id="catalog-search-input" placeholder="Ex.: ana.dev, loop, mercado, POO..." aria-label="Pesquisar desafios">
+              <div class="search-icon-btn" title="Pesquisar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                  <path d="M21 21l-6 -6"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles de Filtro (Figma) -->
+          <div class="filter-controls-row">
+            <span class="btn-filter-trigger">
+              Adicione um filtro +
+            </span>
+
+            <div class="filter-pills-wrap">
+              <button class="filter-pill active" data-filter-group="level" data-value="Todos">Nível: Todos</button>
+              <button class="filter-pill" data-filter-group="level" data-value="Iniciante">Iniciante</button>
+              <button class="filter-pill" data-filter-group="level" data-value="Intermediário">Intermediário</button>
+              <button class="filter-pill" data-filter-group="level" data-value="Avançado">Avançado</button>
+              
+              <button class="filter-pill active" data-filter-group="status" data-value="Todos">Status: Todos</button>
+              <button class="filter-pill" data-filter-group="status" data-value="Em andamento">Em andamento</button>
+              <button class="filter-pill" data-filter-group="status" data-value="Concluídos">Concluídos</button>
+              <button class="filter-pill" data-filter-group="status" data-value="Favoritos">Favoritos</button>
+            </div>
+
+            <button class="btn-clear-filters" id="btn-clear-all-filters">Limpar filtros</button>
+          </div>
+
+          <!-- Grid Completo de Desafios -->
+          <div class="cards-grid" id="catalog-cards-grid">
+            <!-- Renderizado dinamicamente -->
+          </div>
+
+          <!-- Banner CTA Inferior do Catálogo -->
+          <section class="bottom-cta-banner">
+            <div class="cta-content-left">
+              <span class="cta-kicker">PRONTO PARA TENTAR?</span>
+              <h2>Não precisa saber tudo para começar.</h2>
+              <p>Crie sua conta e encontre um primeiro projeto do seu tamanho.</p>
+            </div>
+            <button class="btn-cta-action" onclick="openAuthModal('register')">
+              Começar agora <span>&rarr;</span>
+            </button>
+          </section>
+        </section>
+
+
+        <!-- ===================================================================
+             3. TELA: DETALHES DO DESAFIO (Figma Tela Desafios.png)
+             =================================================================== -->
+        <section class="view-panel" id="view-challenge" aria-label="Visualização do Desafio">
+          <!-- 1. Trilha de Navegação (Breadcrumbs) -->
+          <nav class="challenge-breadcrumbs" aria-label="Navegação em trilha">
+            <button type="button" class="breadcrumb-link" id="ch-breadcrumb-catalog">Desafios</button>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <button type="button" class="breadcrumb-link" id="ch-breadcrumb-level">Iniciante</button>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current" id="ch-breadcrumb-title">Mercado</span>
+          </nav>
+
+          <!-- 2. Grid Hero (Card Ciano + Metadados e Conquista) -->
+          <div class="challenge-hero-layout">
+            <!-- Card Principal Ciano Neo-Brutalista -->
+            <article class="challenge-hero-card" id="ch-hero-card">
+              <div class="hero-top-row">
+                <div class="hero-titles">
+                  <h1 class="challenge-main-title" id="ch-hero-title">Mercado</h1>
+                  <p class="challenge-main-subtitle" id="ch-hero-subtitle">Implementação de sistema de caixa</p>
+                </div>
+                <button class="btn-hero-bookmark" id="btn-hero-bookmark" title="Favoritar desafio" aria-label="Favoritar desafio">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Tags de Dificuldade e Tecnologias -->
+              <div class="hero-tags-row" id="ch-hero-tags">
+                <!-- Injetado dinamicamente via JS -->
+              </div>
+
+              <!-- Citação Resumo do Desafio -->
+              <blockquote class="hero-quote-box" id="ch-hero-quote">
+                "O desafio propõe a criação de um sistema básico de leitura de código de produtos, cálculo do valor final da compra do cliente, e validação de erros nas leituras."
+              </blockquote>
+
+              <!-- Botões de Ação do Hero -->
+              <div class="hero-actions-row">
+                <button type="button" class="btn-hero-save" id="btn-hero-save">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z"></path>
+                  </svg>
+                  <span id="btn-hero-save-text">Salvar desafio</span>
+                </button>
+                <button type="button" class="btn-hero-start" id="btn-hero-start">
+                  <span id="btn-hero-start-text">Começar desafio</span>
+                  <span class="btn-arrow">&rarr;</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Coluna Lateral de Metadados e Conquista (2x2 + Card Conquista) -->
+            <aside class="challenge-stats-sidebar" aria-label="Metadados do desafio">
+              <div class="stats-2x2-grid">
+               <div class="stat-mini-card">
+  <span class="stat-mini-label">TEMPO ESTIMADO</span>
+  <strong class="stat-mini-val" id="ch-stat-time">~2h</strong>
+</div>
+                <div class="stat-mini-card">
+                  <span class="stat-mini-label">ETAPAS</span>
+                  <strong class="stat-mini-val" id="ch-stat-steps">4</strong>
+                </div>
+                <div class="stat-mini-card">
+                  <span class="stat-mini-label">LINGUAGEM</span>
+                  <strong class="stat-mini-val" id="ch-stat-lang">Livre</strong>
+                </div>
+                <div class="stat-mini-card">
+                  <span class="stat-mini-label">ENTREGA</span>
+                  <strong class="stat-mini-val" id="ch-stat-delivery">GitHub</strong>
+                </div>
+              </div>
+
+              <!-- Banner de Conquista Disponível -->
+              <div class="ch-achievement-card" id="ch-achievement-banner">
+                <div class="ch-ach-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 21l8 0"></path>
+                    <path d="M12 17l0 4"></path>
+                    <path d="M7 4l10 0"></path>
+                    <path d="M17 4v8a5 5 0 0 1 -10 0v-8"></path>
+                    <path d="M5 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                    <path d="M19 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                  </svg>
+                </div>
+                <div class="ch-ach-text-wrap">
+                  <span class="ch-ach-kicker">Conquista disponível!</span>
+                  <p class="ch-ach-desc">
+                    Conclua este desafio e desbloqueie
+                    <button type="button" class="ch-ach-link" id="ch-ach-link-title">Primeiro caixa</button>
+                  </p>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <!-- 3. Seção: Especificações do Desafio (Figma) -->
+          <section class="challenge-specs-section" aria-labelledby="specs-main-heading">
+            <div class="section-title-wrap">
+              <h2 class="specs-main-heading" id="specs-main-heading">Especificações do desafio</h2>
+              <p class="specs-sub-heading">Tudo o que o seu programa precisa fazer pra ser considerado completo.</p>
+            </div>
+
+            <!-- Grid dos 6 Cards Coloridos do Figma -->
+            <div class="specs-cards-grid">
+              <!-- 1. Objetivo (Amarelo) -->
+              <article class="spec-card card-yellow" id="spec-card-objective">
+                <h3 class="spec-card-title">Objetivo</h3>
+                <div class="spec-card-body" id="spec-body-objective"></div>
+              </article>
+
+              <!-- 2. Requisitos (Branco/Neutro) -->
+              <article class="spec-card card-neutral" id="spec-card-requirements">
+                <h3 class="spec-card-title">Requisitos</h3>
+                <div class="spec-card-body" id="spec-body-requirements"></div>
+              </article>
+
+              <!-- 3. Catálogo de Exemplo (Ciano Suave / Tabela) -->
+              <article class="spec-card card-cyan" id="spec-card-example">
+                <h3 class="spec-card-title" id="spec-title-example">Catálogo de exemplo</h3>
+                <div class="spec-card-body" id="spec-body-example"></div>
+              </article>
+
+              <!-- 4. Entrada & Saída (Terminal Preto) -->
+              <article class="spec-card card-terminal" id="spec-card-terminal">
+                <h3 class="spec-card-title">Entrada & saída</h3>
+                <div class="spec-card-body" id="spec-body-terminal"></div>
+              </article>
+
+              <!-- 5. Validação de Erros (Coral / Salmão) -->
+              <article class="spec-card card-red" id="spec-card-errors">
+                <h3 class="spec-card-title">
+                  <span>Validação de erros</span>
+                  <span class="spec-counter-badge" id="spec-errors-badge"></span>
+                </h3>
+                <div class="spec-card-body" id="spec-body-errors"></div>
+              </article>
+
+              <!-- 6. Critérios de Aceite (Verde Menta) -->
+              <article class="spec-card card-green" id="spec-card-acceptance">
+                <h3 class="spec-card-title">
+                  <span>Critérios de aceite</span>
+                  <span class="spec-counter-badge" id="spec-acceptance-badge"></span>
+                </h3>
+                <div class="spec-card-body" id="spec-body-acceptance"></div>
+              </article>
+            </div>
+          </section>
+
+          <!-- 4. Seção: Etapas Guiadas (Figma) -->
+          <section class="challenge-guided-section" aria-labelledby="guided-steps-heading">
+            <div class="section-title-wrap">
+              <h2 class="specs-main-heading" id="guided-steps-heading">Etapas guiadas</h2>
+              <p class="specs-sub-heading">Uma etapa por vez, no seu ritmo.</p>
+            </div>
+
+            <div class="guided-steps-row" id="ch-guided-steps-container">
+              <!-- Renderizado dinamicamente via JS -->
+            </div>
+          </section>
+
+          <!-- 5. Seção Integrada: Entrega do Desafio com GitHub (Requisito 3.3) -->
+          <section class="challenge-delivery-section" id="challenge-delivery-section" aria-label="Entrega do desafio com GitHub">
+            <div class="delivery-card-inner">
+              <div class="delivery-header">
+                <div class="delivery-icon-title">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+                  </svg>
+                  <div>
+                    <h3>Entrega do desafio com GitHub</h3>
+                    <p class="delivery-subtitle">Envie o link do repositório para validar o projeto e desbloquear suas conquistas.</p>
+                  </div>
+                </div>
+                <div class="delivery-status-indicator" id="ch-delivery-status-indicator">
+                  <!-- Status e progresso dinâmico -->
+                </div>
+              </div>
+
+              <!-- Formulário e Links de Entrega -->
+              <div class="delivery-content-body" id="ch-delivery-content-body">
+                <!-- Renderizado dinamicamente via JS -->
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. Banner CTA Inferior (Figma) -->
+          <section class="challenge-bottom-cta-banner">
+            <div class="ch-cta-content">
+              <span class="ch-cta-kicker">PRONTO PARA TENTAR?</span>
+              <h2 class="ch-cta-heading" id="ch-cta-heading">Bora passar umas compras no caixa.</h2>
+              <p class="ch-cta-sub" id="ch-cta-sub">Salve seu progresso criando uma conta, ou explore sem login.</p>
+            </div>
+            <button type="button" class="btn-ch-cta-action" id="btn-ch-bottom-cta">
+              <span id="btn-ch-bottom-cta-text">Começar agora</span>
+              <span>&rarr;</span>
+            </button>
+          </section>
+
+          <!-- Rodapé discreto oficial da tela (Figma) -->
+          <footer class="challenge-screen-footer">
+            <span class="footer-brand">@Commit!</span>
+            <span class="footer-links">Política de Privacidade & Termos de Uso.</span>
+          <span class="footer-links">
+  <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>
+  &amp;
+  <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a>.
+</span>
+          </footer>
+        </section>
+
+
+        <!-- ===================================================================
+             4. TELA: PERFIL DO USUÁRIO (Figma Desafios.png e Conquistas.png)
+             =================================================================== -->
+        <section class="view-panel" id="view-profile" aria-label="Perfil do Usuário">
+          <!-- Card de Destaque do Perfil -->
+          <div class="profile-hero-card" id="profile-hero-content">
+            <!-- Renderizado dinamicamente via JS com arte gráfica do Figma -->
+          </div>
+
+          <!-- Abas de Navegação do Perfil (Figma) -->
+          <div class="profile-tabs-nav" role="tablist">
+            <button class="profile-tab-btn active" id="btn-tab-progress" role="tab" aria-selected="true">
+              Desafios em andamento
+            </button>
+            <button class="profile-tab-btn" id="btn-tab-achievements" role="tab" aria-selected="false">
+              Conquistas
+            </button>
+          </div>
+
+          <!-- Conteúdo da Aba 1: Desafios em Andamento -->
+          <div id="profile-tab-progress-content">
+            <!-- Renderizado dinamicamente com barras de progresso XX% -->
+          </div>
+
+          <!-- Conteúdo da Aba 2: Conquistas (Conquistas.png) -->
+          <div id="profile-tab-achievements-content" style="display: none;">
+            <!-- Renderizado dinamicamente com lista de conquistas -->
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+
+
+
+  <!-- =========================================================================
+       MODAL 2: EDIÇÃO DE PERFIL DO USUÁRIO (3.4)
+       ========================================================================= -->
+  <div class="modal-overlay" id="modal-profile-edit" role="dialog" aria-modal="true" aria-labelledby="modal-edit-title">
+    <div class="modal-dialog" style="max-width: 560px;">
+      <header class="modal-header">
+        <h3 id="modal-edit-title">Editar Perfil</h3>
+        <button class="btn-modal-close" data-close-modal title="Fechar janela" aria-label="Fechar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
+        </button>
+      </header>
+
+      <form id="form-profile-edit">
+        <div class="modal-body">
+          <div id="profile-edit-error" class="field-error-msg" style="display: none; margin-bottom: 12px;"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-name">Nome Completo</label>
+            <input type="text" id="edit-profile-name" class="form-control" required placeholder="Ex.: Lucas Oliveira">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-username">Nome de Usuário (identificador)</label>
+            <input type="text" id="edit-profile-username" class="form-control" required placeholder="Ex.: lucas.dev">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-tag">Tag de Especialidade / Foco</label>
+            <input type="text" id="edit-profile-tag" class="form-control" placeholder="Ex.: Frontend, Iniciante, Lógica">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-email">E-mail</label>
+            <input type="email" id="edit-profile-email" class="form-control" placeholder="Ex.: lucas@commit.edu">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-bio">Apresentação / Bio</label>
+            <textarea id="edit-profile-bio" class="form-control" rows="3" placeholder="Compartilhe seus objetivos e o que está aprendendo..."></textarea>
+          </div>
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" class="btn-outline" data-close-modal>Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar alterações</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       MODAL 3: CADASTRO E LOGIN LOCAL (3.1)
+       ========================================================================= -->
+  <div class="modal-overlay" id="modal-auth" role="dialog" aria-modal="true" aria-labelledby="modal-auth-title">
+    <div class="modal-dialog" style="max-width: 520px;">
+      <header class="modal-header">
+        <div style="display: flex; gap: 8px;">
+          <button class="profile-tab-btn active" id="btn-auth-tab-login" style="height: 40px; padding: 0 16px;">Fazer Login</button>
+          <button class="profile-tab-btn" id="btn-auth-tab-register" style="height: 40px; padding: 0 16px;">Criar Conta</button>
+        </div>
+        <button class="btn-modal-close" data-close-modal title="Fechar janela" aria-label="Fechar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <div id="auth-error-msg" class="field-error-msg" style="display: none; margin-bottom: 16px;"></div>
+
+        <!-- FORMULÁRIO DE LOGIN -->
+               <form id="form-auth-login">
+          <p style="font-size: var(--text-small); color: var(--color-primary-500); font-weight: 600; margin-bottom: 16px;">
+            Acesse seus desafios em andamento, conquistas e repositórios entregues.
+          </p>
+
+          <div class="form-group">
+            <label class="form-label" for="login-username">Nome de Usuário ou E-mail</label>
+            <input type="text" id="login-username" class="form-control" required placeholder="Ex.: pedro.dev ou ana.dev">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Senha</label>
+            <div class="password-field">
+              <input type="password" id="login-password" class="form-control" required placeholder="Digite sua senha">
+              <button type="button" class="btn-toggle-password" data-toggle-password="login-password" aria-label="Mostrar senha por 3 segundos">Mostrar</button>
+            </div>
+          </div>
+
+          <!-- Botão Entrar logo abaixo da senha -->
+          <button type="submit" class="btn-primary" style="width: 100%;">Entrar &rarr;</button>
+
+          <!-- Dica didática de teste rápido (agora abaixo do botão) -->
+          <div style="background-color: var(--color-secondary-100); border: 2px dashed var(--color-secondary); border-radius: 4px; padding: 12px; margin-top: 16px; font-size: 13px;">
+            <strong style="color: var(--color-primary);">Dica de teste rápido para avaliação:</strong>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <button type="button" class="btn-outline btn-sm" id="btn-quick-pedro">Usar pedro.dev</button>
+              <button type="button" class="btn-outline btn-sm" id="btn-quick-ana">Usar ana.dev</button>
+            </div>
+            <p style="font-size: 11px; margin-top: 6px; color: var(--color-primary-500); font-weight: 700;">(Senha padrão para ambos: <strong>123</strong>)</p>
+          </div>
+        </form>
+
+        <!-- FORMULÁRIO DE CADASTRO -->
+        <form id="form-auth-register" style="display: none;">
+          <p style="font-size: var(--text-small); color: var(--color-primary-500); font-weight: 600; margin-bottom: 16px;">
+            Crie sua conta para acompanhar seu progresso e salvar seus projetos.
+          </p>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Nome Completo</label>
+            <input type="text" id="reg-name" class="form-control" required placeholder="Ex.: Mariana Fernandes">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-username">Nome de Usuário (identificador)</label>
+            <input type="text" id="reg-username" class="form-control" required placeholder="Ex.: mari.dev">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">E-mail</label>
+            <input type="email" id="reg-email" class="form-control" required placeholder="mariana@exemplo.com">
+          </div>
+
+          <div class="form-group">
+  <label class="form-label" for="reg-password">Senha de Acesso</label>
+  <div class="password-field">
+    <input type="password" id="reg-password" class="form-control" required placeholder="Crie uma senha simples">
+    <button type="button" class="btn-toggle-password" data-toggle-password="reg-password" aria-label="Mostrar senha por 3 segundos">Mostrar</button>
+  </div>
+</div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-tag">Sua Tag Inicial</label>
+            <input type="text" id="reg-tag" class="form-control" placeholder="Ex.: Iniciante, Estudante, Frontend">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-bio">Bio Curta</label>
+            <textarea id="reg-bio" class="form-control" rows="2" placeholder="O que você está estudando atualmente?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-secondary" style="width: 100%;">Criar minha conta &rarr;</button>
+        </form>
+
+
+        <!-- LOGIN SOCIAL (Google / GitHub) -->
+        <div class="social-auth-block">
+          <div class="social-auth-divider"><span>ou continue com</span></div>
+          <button type="button" class="btn-social btn-social-google" id="btn-auth-google">
+            <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            <span>Continuar com Google</span>
+          </button>
+          <button type="button" class="btn-social btn-social-github" id="btn-auth-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+            </svg>
+            <span>Continuar com GitHub</span>
+          </button>
+          <button type="button" class="btn-social btn-social-linkedin" id="btn-auth-linkedin">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"/>
+  </svg>
+  <span>Continuar com LinkedIn</span>
+</button>
+
+        </div>
+        <p class="legal-notice">
+          Ao continuar, você concorda com os
+          <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a>
+          e a
+          <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTAINER DE TOASTS E NOTIFICAÇÕES -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts da Aplicação -->
+  <!-- Google Identity Services (login com Google) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

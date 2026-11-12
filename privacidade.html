@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade — Commit!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body { display: block; }
+    .legal-page { max-width: 760px; margin: 0 auto; padding: var(--space-6) var(--space-4) var(--space-8); }
+    .legal-page h2 { font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--color-primary); margin: var(--space-5) 0 var(--space-1); }
+    .legal-page p, .legal-page li { margin-bottom: var(--space-2); }
+    .legal-page ul { padding-left: var(--space-4); }
+    .legal-updated { color: var(--color-text-muted); font-size: var(--text-small); margin-bottom: var(--space-4); }
+    [data-theme="dark"] .legal-page h2 { color: #FFFFFF; }
+  </style>
+
+  <script>
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("commit_theme") || "light");
+  </script>
+</head>
+<body>
+  <main class="legal-page">
+    <a class="btn-outline" href="index.html">&larr; Voltar ao Commit!</a>
+
+    <h1 class="main-greeting" style="margin-top: 36px;">Política de Privacidade</h1>
+    <p class="legal-updated">Última atualização: novembro de 2026</p>
+
+    <h2>1. Quais dados usamos</h2>
+    <ul>
+      <li>Dados da conta: nome, nome de usuário, e-mail, tag e bio.</li>
+      <li>Dados de uso: desafios iniciados, progresso, favoritos, conquistas e links de repositórios entregues.</li>
+      <li>Preferência de tema (modo claro ou escuro).</li>
+    </ul>
+
+    <h2>2. Onde os dados ficam</h2>
+    <p>Neste protótipo acadêmico, os dados ficam salvos apenas no seu navegador (localStorage). Eles não são enviados para um servidor do Commit!. Como a senha local não é criptografada, não use uma senha real de outros serviços.</p>
+
+    <h2>3. Login com Google ou GitHub</h2>
+    <p>Quando você entra com Google ou GitHub, usamos somente nome, e-mail, identificador e foto de perfil para criar ou reconhecer sua conta no Commit!. Não temos acesso à senha dessas contas.</p>
+
+    <h2>4. Compartilhamento</h2>
+    <p>Não vendemos nem compartilhamos seus dados com terceiros. Os links de repositório que você entrega são os que você mesmo informa.</p>
+
+    <h2>5. Seus controles</h2>
+    <ul>
+      <li>Você pode editar seu perfil a qualquer momento na tela Perfil.</li>
+      <li>Você pode sair da conta pelo botão "Sair".</li>
+      <li>Para apagar os dados salvos, limpe os dados do site nas configurações do navegador.</li>
+    </ul>
+
+    <h2>6. Contato</h2>
+    <p>Em caso de dúvidas, fale com o grupo responsável pelo projeto Commit!.</p>
+
+    <p style="margin-top: 36px;">Veja também os <a href="termos.html" style="text-decoration: underline; font-weight: 700;">Termos de Uso</a>.</p>
+  </main>
+</body>
+</html>
